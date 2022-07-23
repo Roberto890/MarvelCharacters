@@ -29,9 +29,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0AB-cZ-ZGD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0AB-cZ-ZGD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
+                                <color key="backgroundColor" red="0.58039218189999997" green="0.1686274707" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="7gg-HE-Pyp"/>
                                 </constraints>
@@ -43,14 +43,15 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5g-jo-5MT">
-                                <rect key="frame" x="20" y="352" width="374" height="510"/>
+                                <rect key="frame" x="20" y="396" width="374" height="466"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEL-YX-fDR">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="510"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZEL-YX-fDR">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="466"/>
+                                        <color key="backgroundColor" red="0.58039218189999997" green="0.1686274707" blue="0.21568629149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.57647061349999995" green="0.15686275059999999" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ZEL-YX-fDR" firstAttribute="top" secondItem="T5g-jo-5MT" secondAttribute="top" id="4p3-n6-dSk"/>
                                     <constraint firstAttribute="trailing" secondItem="ZEL-YX-fDR" secondAttribute="trailing" id="9bP-o5-A8P"/>
@@ -58,21 +59,34 @@
                                     <constraint firstAttribute="bottom" secondItem="ZEL-YX-fDR" secondAttribute="bottom" id="VR0-0v-mHB"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jn6-ei-vfn" userLabel="AnimationContainer" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="100" y="408" width="214" height="134"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="iron-man-load"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.57647061349999995" green="0.15686275059999999" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jn6-ei-vfn" secondAttribute="bottom" constant="320" id="BED-Xw-sy0"/>
                             <constraint firstItem="0AB-cZ-ZGD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CeO-vj-LaN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T5g-jo-5MT" secondAttribute="trailing" constant="20" id="DGO-9c-r9Y"/>
+                            <constraint firstItem="Jn6-ei-vfn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Dj0-Ul-HeM"/>
                             <constraint firstItem="0AB-cZ-ZGD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ql3-8z-jwW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jn6-ei-vfn" secondAttribute="trailing" constant="100" id="Rjd-cZ-J9p"/>
                             <constraint firstItem="T5g-jo-5MT" firstAttribute="top" secondItem="0AB-cZ-ZGD" secondAttribute="bottom" constant="8" symbolic="YES" id="aSL-Hd-LVU"/>
                             <constraint firstItem="T5g-jo-5MT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lJK-uw-aK3"/>
                             <constraint firstItem="T5g-jo-5MT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="o5J-Jx-ikY"/>
                             <constraint firstItem="0AB-cZ-ZGD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qTl-4t-vdU"/>
+                            <constraint firstItem="Jn6-ei-vfn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="320" id="zMb-DD-QCN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZQI-Kc-P2V"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="animationContainer" destination="Jn6-ei-vfn" id="xAm-PA-OYk"/>
                         <outlet property="characterCarousel" destination="0AB-cZ-ZGD" id="fER-H9-vdN"/>
                         <outlet property="characterTableView" destination="ZEL-YX-fDR" id="pew-hg-YvQ"/>
                     </connections>

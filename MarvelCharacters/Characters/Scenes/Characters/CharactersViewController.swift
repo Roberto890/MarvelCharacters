@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import Lottie
 
 protocol CharactersViewControllerProtocol: AnyObject {
     
@@ -27,19 +28,24 @@ class CharactersViewController: UIViewController, CharactersViewControllerProtoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAnimationView()
         characterCarousel.delegate = self
         characterCarousel.dataSource = self
         characterTableView.delegate = self
         characterTableView.dataSource = self
         showCharacters()
+        self.navigationItem.title = "MARVEL CHARACTERS"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Marvel Regular", size: 50)]
         
     }
     
+    @IBOutlet weak var animationContainer: AnimationView!
     @IBOutlet weak var characterCarousel: UICollectionView!
     
     @IBOutlet weak var characterTableView: UITableView!
     
     func showCharacters() {
+        startAnimation()
         interactor?.callListCharacter(offset: nil)
     }
     
@@ -50,6 +56,7 @@ class CharactersViewController: UIViewController, CharactersViewControllerProtoc
     
     func displayCharacters(characters: [CharacterData]) {
         DispatchQueue.main.async {[self] in
+            self.stopAnimation()
             self.characterList.append(contentsOf:characters)
             if isFirstCall {
                 characterCarousel.reloadData()
@@ -64,6 +71,7 @@ class CharactersViewController: UIViewController, CharactersViewControllerProtoc
     }
     
     func displayError(message: String) {
+        stopAnimation()
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Falha de conexão", message: message, preferredStyle: UIAlertController.Style.alert)
             let button = UIAlertAction(title: "Sair do App", style: .destructive) { alertAction in
@@ -74,6 +82,28 @@ class CharactersViewController: UIViewController, CharactersViewControllerProtoc
         }
     }
     
+    func loadAnimationView(){
+        animationContainer.backgroundColor = .clear
+        animationContainer.loopMode = .loop
+        animationContainer.animationSpeed = 0.5
+        
+    }
+    
+    func startAnimation() {
+        
+        animationContainer.isHidden = false
+        animationContainer.play()
+        characterTableView.isUserInteractionEnabled = false
+        characterCarousel.isUserInteractionEnabled = false
+        
+    }
+    
+    func stopAnimation(){
+        animationContainer.isHidden = true
+        animationContainer.stop()
+        characterTableView.isUserInteractionEnabled = true
+        characterCarousel.isUserInteractionEnabled = true
+    }
 }
 
 extension CharactersViewController:  UICollectionViewDelegate, UICollectionViewDataSource {
@@ -101,8 +131,6 @@ extension CharactersViewController:  UICollectionViewDelegate, UICollectionViewD
                     print("erro ao baixar imagem: " + error.localizedDescription)
                 }
             }
-            //            downloadImage(url: httpsUrl, uiImage: cell.characterImage)
-            //            cell.characterImage.downloaded(from: httpsUrl, contentMode: .scaleToFill)
         }
         
         
@@ -114,7 +142,7 @@ extension CharactersViewController:  UICollectionViewDelegate, UICollectionViewD
 
 extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if characterList.count == 10 && isFirstCall == true {
+        if characterList.count == 30 && isFirstCall == true {
             currentIndexTableView = 5
             return currentIndexTableView
         } else {
@@ -142,8 +170,6 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
                     print("erro ao baixar imagem: " + error.localizedDescription)
                 }
             }
-            //            downloadImage(url: httpsUrl, uiImage: cell.characterImage)
-            //            cell.characterImage.downloaded(from: httpsUrl, contentMode: .scaleAspectFit)
         }
         
         return cell
@@ -151,24 +177,10 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == currentIndexTableView - 1  {
+            self.startAnimation()
             interactor?.callListCharacter(offset: characterList.count)
         }
     }
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//        let contentHeight = scrollView.contentSize.height
-//
-//        if offsetY > contentHeight - scrollView.frame.height {
-//            if !fetchingMore {
-//                self.interactor?.callListCharacter(offset: characterList.count)
-//            }
-//        }
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 135
-//    }
     
     
 }

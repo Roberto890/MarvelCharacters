@@ -29,8 +29,9 @@
 		BD0FB372288BC547002BF09D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = BD0FB371288BC547002BF09D /* SDWebImage */; };
 		BD0FB374288BC547002BF09D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BD0FB373288BC547002BF09D /* SDWebImageMapKit */; };
 		BD0FB377288C441B002BF09D /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD0FB376288C441B002BF09D /* CryptoSwift */; };
-		BD0FB37A288C5C49002BF09D /* loading-circle.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0FB379288C5C49002BF09D /* loading-circle.json */; };
 		BD0FB37D288C5E60002BF09D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BD0FB37C288C5E60002BF09D /* Lottie */; };
+		BD0FB389288C7867002BF09D /* iron-man-load.json in Resources */ = {isa = PBXBuildFile; fileRef = BD0FB388288C7867002BF09D /* iron-man-load.json */; };
+		BD0FB38E288C795B002BF09D /* MarvelRegular-Dj83 2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0FB38D288C795A002BF09D /* MarvelRegular-Dj83 2.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,8 @@
 		BD0FB367288B8D11002BF09D /* CharacterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResult.swift; sourceTree = "<group>"; };
 		BD0FB36A288B98D9002BF09D /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 		BD0FB36C288BA65D002BF09D /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
-		BD0FB379288C5C49002BF09D /* loading-circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-circle.json"; sourceTree = "<group>"; };
+		BD0FB388288C7867002BF09D /* iron-man-load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "iron-man-load.json"; sourceTree = "<group>"; };
+		BD0FB38D288C795A002BF09D /* MarvelRegular-Dj83 2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarvelRegular-Dj83 2.ttf"; sourceTree = "<group>"; };
 		DD324A7B9A4F547062273299 /* Pods-MarvelCharacters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharacters.release.xcconfig"; path = "Target Support Files/Pods-MarvelCharacters/Pods-MarvelCharacters.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,10 +228,19 @@
 		BD0FB378288C5C3A002BF09D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				BD0FB379288C5C49002BF09D /* loading-circle.json */,
+				BD0FB381288C757B002BF09D /* fonts */,
+				BD0FB388288C7867002BF09D /* iron-man-load.json */,
 				BD0FB337288B71EB002BF09D /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		BD0FB381288C757B002BF09D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BD0FB38D288C795A002BF09D /* MarvelRegular-Dj83 2.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,11 +313,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0FB389288C7867002BF09D /* iron-man-load.json in Resources */,
 				BD0FB33B288B71EB002BF09D /* LaunchScreen.storyboard in Resources */,
 				BD0FB35A288B7708002BF09D /* CharacterCollectionCell.xib in Resources */,
 				BD0FB35F288B7984002BF09D /* CharacterTableViewCell.xib in Resources */,
+				BD0FB38E288C795B002BF09D /* MarvelRegular-Dj83 2.ttf in Resources */,
 				BD0FB338288B71EB002BF09D /* Assets.xcassets in Resources */,
-				BD0FB37A288C5C49002BF09D /* loading-circle.json in Resources */,
 				BD0FB336288B71E9002BF09D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +522,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -538,6 +551,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

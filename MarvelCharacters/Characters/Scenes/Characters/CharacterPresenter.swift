@@ -22,7 +22,18 @@ class CharactersPresenter: CharactersPresenterProtocol  {
     }
     
     func presentCharacters(characters: [CharacterData]) {
-        viewController?.displayCharacters(characters: characters)
+        var charactersModel: [CharacterData] = []
+        for character in characters {
+            if character.description == "" {
+                let newCharacter = CharacterData(name: character.name?.uppercased(), description: "Description not found ".uppercased() + "😱".uppercased(), imageUrl: character.imageUrl)
+                charactersModel.append(newCharacter)
+            }else {
+                let newCharacter = CharacterData(name: character.name?.uppercased(), description: character.description.uppercased(), imageUrl: character.imageUrl)
+                charactersModel.append(newCharacter)
+            }
+            
+        }
+        viewController?.displayCharacters(characters: charactersModel)
     }
     
     func presentError(error: String) {
